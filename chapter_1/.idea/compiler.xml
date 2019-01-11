@@ -12,6 +12,8 @@
         <module name="feign-hystrix-client" />
         <module name="hystrix-client" />
         <module name="ribbon-client" />
+        <module name="turbine-client" />
+        <module name="zuul-client" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
@@ -22,6 +24,8 @@
       <module name="hyan-cloud" target="1.8" />
       <module name="hystrix-client" target="1.8" />
       <module name="ribbon-client" target="1.8" />
+      <module name="turbine-client" target="1.8" />
+      <module name="zuul-client" target="1.8" />
     </bytecodeTargetLevel>
   </component>
 </project>

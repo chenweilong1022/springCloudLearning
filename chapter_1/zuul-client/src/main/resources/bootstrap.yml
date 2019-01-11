@@ -1,0 +1,34 @@
+
+eureka:
+  client:
+    service-url:
+      defaultZone: http://127.0.0.1:9647/eureka/
+server:
+  port: 9654
+
+spring:
+  application:
+    name: zuul-client
+zuul:
+  routes:
+    hiapi:
+      path: /hiapi/**
+#      serviceId: hiapi-v1
+      serviceId: eureka-client
+#      url: http://localhost:9646 #不进行负载均衡直接指定服务 不推荐
+    ribbonapi:
+      path: /ribbonapi/**
+      serviceId: ribbon-client
+    feignapi:
+      path: /feignapi/**
+      serviceId: feign-client
+  prefix: /v1
+
+#ribbon:
+#  eureka:
+#    enabled: false #关闭获取服务列表
+
+#自定义服务列表
+#hiapi-v1:
+#  ribbon:
+#    listOfServers: http://localhost:9646,http://localhost:9648
