@@ -1,0 +1,17 @@
+
+eureka:
+  client:
+    service-url:
+      defaultZone: http://127.0.0.1:9647/eureka/
+server:
+  port: 9653
+
+spring:
+  application:
+    name: turbine-client
+
+turbine:
+  aggregator:
+    clusterConfig: default
+  app-config: feign-hystrix-client,hystrix
+  cluster-name-expression: new String("default")
