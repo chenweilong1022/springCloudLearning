@@ -1,14 +1,30 @@
 
 server:
   port: 9655
+#spring: #本地仓库配置
+#  cloud:
+#    config:
+#      server:
+#        native:
+#          search-locations: classpath:/shared
+#  profiles:
+#    active: native
+#  application:
+#    name: config-server
+
 spring:
   cloud:
     config:
       server:
-        native:
-          search-locations: classpath:/shared
-  profiles:
-    active: native
+        git:
+          uri: https://github.com/chenweilong1022/springCloudConfig.git
+          search-paths: config-client
+          username:
+          password:
+      label: master
   application:
     name: config-server
-
+eureka:
+  client:
+    service-url:
+      defaultZone: http://127.0.0.1:9647/eureka/
